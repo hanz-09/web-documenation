@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Ceker Documentation - a code documentation page
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="scribbler-global.css" />
+    <link rel="stylesheet" href="scribbler-doc.css" />
+    <link rel="author" href="humans.txt" />
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo">Ceker <span class="logo__thin">Doc</span></h1>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item">
+          <a href="https://github.com/hanz-09/pbl.git" target="_blank" class="link link--dark"
+            ><i class="fa fa-github"></i> Github</a
+          >
+        </li>
+        <li class="menu__item">
+          <a href="index.html" class="link link--dark"
+            ><i class="fa fa-home"></i> Home</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <div class="wrapper">
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Get Started</li>
+          <li class="js-btn">Installation</li>
+          <li class="js-btn">Configuration</li>
+          <!-- <li class="js-btn">Cara Kerja Aplikasi</li> -->
+        </ul>
+      </aside>
+      <article class="doc__content">
+        <section class="js-section">
+          <h3 class="section__title">Get Started</h3>
+          <p>
+            <b>Instal Git:</b> Make sure you have Git installed on your system. 
+            If you don't, you can download it from <a href="https://git-scm.com/" target="_blank">git-scm.com</a> and follow 
+            the installation instructions.
+          </p>
+          <p>
+            <b>Install Flutter:</b> Ensure that Flutter is installed on your machine. 
+            You can download it from <a href="https://flutter.dev/" target="_blank">flutter.dev</a> and follow the setup instructions 
+            for your operating system.
+          </p>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Installation</h3>
+          <p>
+            1. Open Terminal: Open your terminal (Linux/macOS) or command prompt (Windows).
+          </p>
+          <p>
+            2. Clone the Repository: Suppose the GitHub repository URL is 
+            <a href="https://github.com/hanz-09/pbl.git" target="_blank">github.com</a>. 
+            Then, run the following command:
+          </p>
+          <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                git clone https://github.com/hanz-09/pbl.git
+              </code>
+            </pre>
+            <p>
+              3. Navigate to the Project Directory:
+            </p>
+            <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                cd flutter
+              </code>
+            </pre>
+            <p>
+              4. Set Up Firebase: Follow the steps above to create a Firebase project and download the necessary configuration files (google-services.json for Android and GoogleService-Info.plist for iOS).
+            </p>
+            <p>
+              5. Add Configuration Files: Place the configuration files in the appropriate directories (android/app and ios/Runner).
+            </p>
+            <p>
+              6. Update Dependencies and Initialize Firebase:Ensure your pubspec.yaml includes Firebase dependencies.Initialize Firebase in your main.dart.
+            </p>
+            <p>
+              7. Get Flutter Packages:
+            </p>
+            <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                flutter pub get
+              </code>
+            </pre>
+            <p>
+              8. Run Flutter App:
+            </p>
+            <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                flutter run
+              </code>
+            </pre>
+            </div>
+          </div>
+        </section>
+        <section class="js-section">
+          <h3 class="section__title">Configuration</h3>
+          <p>
+            Configuring Firebase in a Flutter project involves several steps. Below is a detailed guide to integrate Firebase into your Flutter app for Android platforms:
+          </p>
+          <p>
+            1. Create a Firebase Project: Go to the Firebase Console. Click on "Add project" and follow the on-screen instructions to create a new project.
+          </p>
+          <p>
+            2. Register Your App with Firebase:
+            <ul>
+              <li>In the Firebase Console, go to Project Settings.</li>
+              <li>Click on the Android icon to add an Android app</li>
+              <li>Register your app with the package name (e.g., com.example.yourapp).</li>
+              <li>Download the google-services.json file.</li>
+              <li>Place the google-services.json file in the android/app directory of your Flutter project.</li>
+            </ul>
+          </p>
+          <p>
+            3. Add Firebase SDK Dependencies
+          </p>
+          <ul>
+            <li>Open your Flutter project's pubspec.yaml file and add the necessary Firebase dependencies:</li>
+            <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                dependencies:
+                  flutter:
+                    sdk: flutter
+                  firebase_core: latest_version
+                  firebase_auth: latest_version
+                  cloud_firestore: latest_version
+                  # Add other Firebase dependencies as needed
+              </code>
+            </pre>
+            </div>
+            <li>Run flutter pub get to install these dependencies.</li>
+          </ul>
+          <p>
+            4. Configure Your Android Project
+          </p>
+          <ul>
+            <li>Open android/build.gradle and add the Google services classpath:</li>
+            <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                buildscript {
+                  dependencies {
+                    classpath 'com.google.gms:google-services:4.3.10' // Check for the latest version
+                  }
+                }
+              </code>
+            </pre>
+            </div>
+            <li>Open android/app/build.gradle and apply the Google services plugin:</li>
+            <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                apply plugin: 'com.google.gms.google-services'
+              </code>
+            </pre>
+            </div>
+          </ul>
+          <p>
+            5. Initialize Firebase in Your Flutter App
+          </p>
+          <ul>
+            <li>Open your main.dart file and initialize Firebase:</li>
+            <div class="code__block code__block--notabs">
+            <pre class="code code--block">
+              <code>
+                import 'package:firebase_core/firebase_core.dart';
+                import 'package:flutter/material.dart';
+
+                void main() async {
+                  WidgetsFlutterBinding.ensureInitialized();
+                  await Firebase.initializeApp();
+                  runApp(MyApp());
+                }
+
+                class MyApp extends StatelessWidget {
+                  @override
+                  Widget build(BuildContext context) {
+                    return MaterialApp(
+                      home: Scaffold(
+                        appBar: AppBar(title: Text('Ceker')),
+                      ),
+                    );
+                  }
+                }
+              </code>
+            </pre>
+            </div>
+          </ul>
+          <!-- <hr />
+          <h3 class="section__title">Keybindings</h3>
+          <p>
+            Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel
+            inani aeterno ad. Facer oratio ex per. At eam movet verear, in sea
+            brute patrioque disputando, usu nonumes torquatos an. Ex his
+            quaerendum intellegebat, ut vel homero accusam. Eum at debet
+            tibique, in vocibus temporibus adversarium sed. Porro verear eu vix,
+            ne usu tation vituperata. -->
+          <!-- </p>
+          <p>
+            Malis percipitur an pro. Pro aperiam persequeris at, at sonet
+            sensibus mei, id mea postulant definiebas concludaturque. Id qui
+            malis abhorreant, mazim melius quo et. At eam altera dolorum, case
+            dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no
+            verterem deseruisse, mea brute postea te, ne per tacimates suavitate
+            vituperatoribus.
+          </p> -->
+          <!-- <p>
+            Malis percipitur an pro. Pro aperiam persequeris at, at sonet
+            sensibus mei, id mea postulant definiebas concludaturque. Id qui
+            malis abhorreant, mazim melius quo et. At eam altera dolorum, case
+            dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no
+            verterem deseruisse, mea brute postea te, ne per tacimates suavitate
+            vituperatoribus.
+          </p> -->
+          <!-- <hr /> -->
+        </section>
+        <!-- <section class="js-section">
+          <h3 class="section__title">Issues</h3>
+          <p>
+            Lorem ipsum dolor sit amet, scripta tibique indoctum sit ei, mel
+            inani aeterno ad. Facer oratio ex per. At eam movet verear, in sea
+            brute patrioque disputando, usu nonumes torquatos an. Ex his
+            quaerendum intellegebat, ut vel homero accusam. Eum at debet
+            tibique, in vocibus temporibus adversarium sed. Porro verear eu vix,
+            ne usu tation vituperata.
+          </p> -->
+          <!-- <p>
+            Malis percipitur an pro. Pro aperiam persequeris at, at sonet
+            sensibus mei, id mea postulant definiebas concludaturque. Id qui
+            malis abhorreant, mazim melius quo et. At eam altera dolorum, case
+            dicant lobortis ius te, ad vel affert oportere reprehendunt. Quo no
+            verterem deseruisse, mea brute postea te, ne per tacimates suavitate
+            vituperatoribus.
+          </p> -->
+        </section>
+      </article>
+    </div>
+
+    <footer class="footer">
+      Scribbler is a free HTML template created exclusively for
+      <a
+        href="https://tympanus.net/codrops/"
+        target="_blank"
+        class="link link--light"
+        >Codrops</a
+      >.
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+    <script src="scribbler.js"></script>
+  </body>
+</html>
